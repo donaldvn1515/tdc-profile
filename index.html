@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Name — Personal Card</title>
+<title>Hồ Nhật Phát — Bất Động Sản</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
@@ -17,8 +17,6 @@
     --text: #e8e8ef;
     --muted: #6a6a88;
     --faint: #1e1e2e;
-
-    /* theme accents */
     --midnight: #3b5bdb;
     --arctic: #74c0fc;
     --forest: #69db7c;
@@ -47,8 +45,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.2rem 2.5rem;
-    background: rgba(12,12,16,0.85);
-    backdrop-filter: blur(12px);
+    background: rgba(12,12,16,0.88);
+    backdrop-filter: blur(14px);
     border-bottom: 0.5px solid var(--border);
   }
 
@@ -67,14 +65,13 @@
   }
 
   .nav-links a {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--muted);
     text-decoration: none;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     transition: color 0.2s;
   }
-
   .nav-links a:hover { color: var(--text); }
 
   /* ── HERO ── */
@@ -85,13 +82,13 @@
     align-items: center;
     justify-content: center;
     padding: 7rem 2rem 4rem;
-    position: relative;
     text-align: center;
+    position: relative;
   }
 
   .hero-eyebrow {
-    font-size: 0.72rem;
-    letter-spacing: 0.22em;
+    font-size: 0.7rem;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 1.4rem;
@@ -99,9 +96,9 @@
 
   .hero-title {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-size: clamp(2.8rem, 8vw, 5.2rem);
     color: var(--text);
-    line-height: 1.05;
+    line-height: 1.06;
     letter-spacing: -0.02em;
     margin-bottom: 1rem;
   }
@@ -112,31 +109,46 @@
   }
 
   .hero-sub {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--muted);
-    max-width: 400px;
-    margin: 0 auto 3rem;
+    max-width: 380px;
+    margin: 0 auto 2.8rem;
     font-weight: 300;
+    line-height: 1.7;
   }
 
-  /* theme strip */
+  /* theme pips */
   .theme-strip {
     display: flex;
-    gap: 6px;
-    margin-bottom: 3.5rem;
+    gap: 8px;
+    margin-bottom: 3rem;
     justify-content: center;
+    align-items: center;
   }
 
   .theme-pip {
     width: 10px; height: 10px;
     border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.1);
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s;
+    position: relative;
   }
-  .theme-pip:hover, .theme-pip.active {
-    transform: scale(1.4);
+  .theme-pip:hover, .theme-pip.active { transform: scale(1.5); }
+  .theme-pip .tip {
+    display: none;
+    position: absolute;
+    bottom: 18px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    pointer-events: none;
   }
+  .theme-pip:hover .tip { display: block; }
+
   .pip-midnight { background: var(--midnight); }
   .pip-arctic   { background: var(--arctic); }
   .pip-forest   { background: var(--forest); }
@@ -149,7 +161,7 @@
     width: min(380px, 90vw);
     height: 220px;
     cursor: pointer;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
   }
 
   .card-inner {
@@ -158,7 +170,6 @@
     transform-style: preserve-3d;
     transition: transform 0.65s cubic-bezier(0.4,0,0.2,1);
   }
-
   .card-inner.flipped { transform: rotateY(180deg); }
 
   .card-face {
@@ -173,44 +184,28 @@
     flex-direction: column;
     justify-content: space-between;
   }
-
   .card-back-face { transform: rotateY(180deg); }
 
   .flip-hint {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     color: var(--muted);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin-top: 0.6rem;
+    margin-top: 0.5rem;
   }
 
   /* ── CARD THEMES ── */
-
-  /* 1. Midnight */
-  .t-midnight {
-    background: #0a0a0f;
-    color: #e8e8ef;
-  }
+  .t-midnight { background: #0a0a0f; color: #e8e8ef; }
   .t-midnight::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
+    top: 0; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, #3b5bdb, #7048e8, #3b5bdb);
   }
 
-  /* 2. Arctic */
-  .t-arctic {
-    background: #f0f6ff;
-    color: #0d1b3e;
-    border: 0.5px solid #c5d8f8;
-  }
+  .t-arctic { background: #f0f6ff; color: #0d1b3e; border: 0.5px solid #c5d8f8; }
 
-  /* 3. Forest */
-  .t-forest {
-    background: #162219;
-    color: #e0f0e0;
-  }
+  .t-forest { background: #162219; color: #e0f0e0; }
   .t-forest::after {
     content: '';
     position: absolute;
@@ -221,73 +216,48 @@
     pointer-events: none;
   }
 
-  /* 4. Sunset */
-  .t-sunset {
-    background: #130e0c;
-    color: #f5e0d8;
-  }
+  .t-sunset { background: #130e0c; color: #f5e0d8; }
 
-  /* 5. Gold */
-  .t-gold {
-    background: #0f0e09;
-    color: #e8ddb8;
-  }
+  .t-gold { background: #0f0e09; color: #e8ddb8; }
   .t-gold::after {
     content: '';
     position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 1px;
+    bottom: 0; left: 0; right: 0; height: 1px;
     background: linear-gradient(90deg, transparent, #c9a84c60, transparent);
   }
 
-  /* ── card content classes ── */
-  .cn { font-size: 1.25rem; font-weight: 500; letter-spacing: -0.02em; }
-  .cr { font-size: 0.72rem; margin-top: 5px; letter-spacing: 0.06em; }
-  .cc { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; }
+  /* card text helpers */
+  .cn { font-size: 1.22rem; font-weight: 500; letter-spacing: -0.02em; }
+  .cr { font-size: 0.7rem; margin-top: 5px; letter-spacing: 0.04em; line-height: 1.4; }
+  .cc { font-size: 0.63rem; letter-spacing: 0.14em; text-transform: uppercase; }
 
-  .mn { color: #f0f0fa; }
-  .mr { color: #7777aa; }
-  .mc { color: #3b3b6a; }
+  .mn { color: #f0f0fa; } .mr { color: #7777aa; } .mc { color: #3b3b6a; }
   .md { display: flex; align-items: center; gap: 6px; }
-  .md span { width: 7px; height: 7px; border-radius: 50%; background: #3b5bdb; flex-shrink: 0; }
+  .md span.dot { width: 7px; height: 7px; border-radius: 50%; background: #3b5bdb; flex-shrink: 0; }
 
-  .an { color: #0d1b3e; }
-  .ar { color: #5577aa; }
-  .ac { color: #8899cc; }
+  .an { color: #0d1b3e; } .ar { color: #5577aa; } .ac { color: #8899cc; }
   .aa { display: block; width: 30px; height: 2.5px; background: #74c0fc; border-radius: 2px; margin-bottom: 12px; }
 
-  .fn { color: #c8eec8; }
-  .fr { color: #66aa77; }
-  .fc { color: #3a6644; }
+  .fn { color: #c8eec8; } .fr { color: #66aa77; } .fc { color: #3a6644; }
 
-  .sn { color: #fdddd5; }
-  .sr { color: #bb6650; }
-  .sc { color: #6a3020; }
+  .sn { color: #fdddd5; } .sr { color: #bb6650; } .sc-col { color: #6a3020; }
   .sb { display: flex; gap: 3px; margin-bottom: 10px; }
   .sb span { height: 2.5px; border-radius: 2px; }
 
-  .gn { color: #e8d898; }
-  .gr { color: #9a8855; }
-  .gc { color: #504820; }
+  .gn { color: #e8d898; } .gr { color: #9a8855; } .gc { color: #504820; }
   .gcorn {
-    position: absolute;
-    width: 18px; height: 18px;
-    border-color: #c9a84c;
-    border-style: solid;
-    border-width: 0;
+    position: absolute; width: 18px; height: 18px;
+    border-color: #c9a84c; border-style: solid; border-width: 0;
   }
   .gcorn.tl { top: 18px; left: 18px; border-top-width: 1px; border-left-width: 1px; }
   .gcorn.br { bottom: 18px; right: 18px; border-bottom-width: 1px; border-right-width: 1px; }
 
   /* back rows */
   .brow {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.72rem;
-    margin-bottom: 6px;
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.7rem; margin-bottom: 6px;
   }
-  .brow svg { width: 13px; height: 13px; flex-shrink: 0; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .brow svg { width: 12px; height: 12px; flex-shrink: 0; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
   .bdiv { height: 0.5px; margin: 8px 0; }
 
   /* ── ABOUT ── */
@@ -298,8 +268,8 @@
   }
 
   .section-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 2rem;
@@ -307,12 +277,10 @@
     align-items: center;
     gap: 12px;
   }
-
   .section-label::after {
     content: '';
     display: block;
-    height: 0.5px;
-    width: 40px;
+    height: 0.5px; width: 40px;
     background: var(--border);
   }
 
@@ -329,40 +297,58 @@
     line-height: 1.15;
     color: var(--text);
     letter-spacing: -0.02em;
+    margin-bottom: 1.6rem;
   }
-
   .about-headline em { font-style: italic; color: var(--muted); }
-
-  .about-body {
-    font-size: 0.92rem;
-    color: var(--muted);
-    line-height: 1.85;
-    font-weight: 300;
-  }
-
-  .about-body p + p { margin-top: 1rem; }
 
   .theme-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 1.8rem;
   }
 
   .tag {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     padding: 5px 12px;
     border-radius: 20px;
     border: 0.5px solid;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.2s;
   }
-
+  .tag:hover { opacity: 0.75; }
   .tag-midnight { border-color: #3b5bdb44; color: #7788ee; background: #3b5bdb11; }
   .tag-arctic   { border-color: #74c0fc44; color: #74c0fc; background: #74c0fc11; }
   .tag-forest   { border-color: #69db7c44; color: #69db7c; background: #69db7c11; }
   .tag-sunset   { border-color: #e0603a44; color: #e07050; background: #e0603a11; }
   .tag-gold     { border-color: #c9a84c44; color: #c9a84c; background: #c9a84c11; }
+
+  .about-body {
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.9;
+    font-weight: 300;
+  }
+  .about-body p + p { margin-top: 1rem; }
+  .about-body strong { color: var(--text); font-weight: 500; }
+
+  /* specialty pills */
+  .spec-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1.4rem;
+  }
+  .spec-pill {
+    font-size: 0.68rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
 
   /* ── THEMES SHOWCASE ── */
   #themes {
@@ -373,7 +359,7 @@
 
   .showcase-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1rem;
     margin-top: 2rem;
   }
@@ -382,27 +368,22 @@
     border-radius: 12px;
     padding: 20px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s;
     border: 0.5px solid transparent;
     position: relative;
     overflow: hidden;
   }
-  .showcase-card:hover { transform: translateY(-3px); }
+  .showcase-card:hover { transform: translateY(-4px); }
 
   .sc-midnight { background: #0a0a0f; border-color: #3b5bdb33; }
   .sc-arctic   { background: #f0f6ff; border-color: #c5d8f8; }
   .sc-forest   { background: #162219; border-color: #4a8a5533; }
   .sc-sunset   { background: #130e0c; border-color: #e0603a33; }
-  .sc-gold     { background: #0f0e09; border-color: #c9a84c33; }
+  .sc-gold-card{ background: #0f0e09; border-color: #c9a84c33; }
 
-  .sc-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  .sc-name { font-size: 1rem; font-weight: 500; margin-bottom: 2px; }
-  .sc-role { font-size: 0.7rem; }
+  .sc-label { font-size: 0.63rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 10px; }
+  .sc-name  { font-size: 0.95rem; font-weight: 500; margin-bottom: 2px; }
+  .sc-role  { font-size: 0.68rem; line-height: 1.4; }
 
   /* ── CONTACT ── */
   #contact {
@@ -421,7 +402,7 @@
   }
 
   .contact-sub {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--muted);
     font-weight: 300;
     margin-bottom: 2.5rem;
@@ -430,7 +411,7 @@
   .contact-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
     justify-content: center;
   }
 
@@ -440,7 +421,7 @@
     gap: 8px;
     padding: 10px 20px;
     border-radius: 8px;
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     letter-spacing: 0.06em;
     text-decoration: none;
     border: 0.5px solid var(--border);
@@ -448,15 +429,18 @@
     background: var(--surface);
     transition: color 0.2s, border-color 0.2s, background 0.2s;
     cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
   }
-
   .contact-btn:hover {
     color: var(--text);
     border-color: rgba(255,255,255,0.2);
     background: var(--faint);
   }
-
-  .contact-btn svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .contact-btn svg {
+    width: 14px; height: 14px;
+    fill: none; stroke: currentColor;
+    stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+  }
 
   /* ── FOOTER ── */
   footer {
@@ -465,15 +449,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     color: var(--muted);
     letter-spacing: 0.06em;
   }
 
-  /* ── SCROLL REVEAL ── */
+  /* ── REVEAL ── */
   .reveal {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(22px);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
   .reveal.visible { opacity: 1; transform: none; }
@@ -482,14 +466,13 @@
   @media (max-width: 640px) {
     nav { padding: 1rem 1.2rem; }
     .nav-links { gap: 1.2rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 1.8rem; }
     .showcase-grid { grid-template-columns: 1fr 1fr; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .card-inner { transition: none; }
-    .reveal { transition: none; }
+    .card-inner, .reveal { transition: none; }
   }
 </style>
 </head>
@@ -497,58 +480,64 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">YN.</a>
+  <a href="#" class="nav-logo">HNP.</a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#themes">Themes</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about">Giới thiệu</a></li>
+    <li><a href="#themes">Chủ đề</a></li>
+    <li><a href="#contact">Liên hệ</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-eyebrow">Personal card &amp; portfolio</p>
-  <h1 class="hero-title">Your Name<br><em>in five moods.</em></h1>
-  <p class="hero-sub">One identity, five ways to present it — pick the card that fits the room.</p>
+  <p class="hero-eyebrow">Chuyên gia bất động sản · Chư Sê</p>
+  <h1 class="hero-title">Hồ Nhật Phát<br><em>năm phong cách.</em></h1>
+  <p class="hero-sub">Một danh tính — năm cách thể hiện. Chọn tấm card phù hợp với từng cuộc gặp.</p>
 
-  <!-- theme pips -->
   <div class="theme-strip">
-    <div class="theme-pip pip-midnight active" data-t="0" title="Midnight" onclick="setTheme(0)"></div>
-    <div class="theme-pip pip-arctic"   data-t="1" title="Arctic"   onclick="setTheme(1)"></div>
-    <div class="theme-pip pip-forest"   data-t="2" title="Forest"   onclick="setTheme(2)"></div>
-    <div class="theme-pip pip-sunset"   data-t="3" title="Sunset"   onclick="setTheme(3)"></div>
-    <div class="theme-pip pip-gold"     data-t="4" title="Obsidian Gold" onclick="setTheme(4)"></div>
+    <div class="theme-pip pip-midnight" onclick="setTheme(4)"><span class="tip">Midnight</span></div>
+    <div class="theme-pip pip-arctic"          onclick="setTheme(1)"><span class="tip">Arctic</span></div>
+    <div class="theme-pip pip-forest"          onclick="setTheme(2)"><span class="tip">Forest</span></div>
+    <div class="theme-pip pip-sunset"          onclick="setTheme(3)"><span class="tip">Sunset</span></div>
+    <div class="theme-pip pip-gold active"            onclick="setTheme(0)"><span class="tip">Gold</span></div>
   </div>
 
-  <!-- card -->
   <div class="card-scene" onclick="flipCard()">
     <div class="card-inner" id="cardInner">
       <div class="card-face card-front-face" id="cardFront"></div>
       <div class="card-face card-back-face"  id="cardBack"></div>
     </div>
   </div>
-  <p class="flip-hint">↩ click to flip</p>
+  <p class="flip-hint">↩ nhấn để lật card</p>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <p class="section-label reveal">About</p>
+  <p class="section-label reveal">Giới thiệu</p>
   <div class="about-grid">
     <div class="reveal">
-      <h2 class="about-headline">Crafted with<br><em>intention.</em></h2>
+      <h2 class="about-headline">Uy tín &amp;<br><em>tận tâm.</em></h2>
       <div class="theme-tags">
-        <span class="tag tag-midnight">Midnight</span>
-        <span class="tag tag-arctic">Arctic</span>
-        <span class="tag tag-forest">Forest</span>
-        <span class="tag tag-sunset">Sunset</span>
-        <span class="tag tag-gold">Obsidian Gold</span>
+        <span class="tag tag-midnight" onclick="setThemeAndScroll(4)">Midnight</span>
+        <span class="tag tag-arctic"   onclick="setThemeAndScroll(1)">Arctic</span>
+        <span class="tag tag-forest"   onclick="setThemeAndScroll(2)">Forest</span>
+        <span class="tag tag-sunset"   onclick="setThemeAndScroll(3)">Sunset</span>
+        <span class="tag tag-gold"     onclick="setThemeAndScroll(0)">Gold</span>
       </div>
     </div>
     <div class="reveal">
       <div class="about-body">
-        <p>Hi, I'm Your Name — a placeholder who takes design seriously. Every card here is a distinct mood, built from scratch: different palette, different rhythm, different feeling.</p>
-        <p>Swap this copy for your real story — what you do, what you care about, where you've been. Make it yours.</p>
-        <p>Based in <strong style="color:#e8e8ef;font-weight:500;">Da Nang, Vietnam.</strong> Open to work worldwide.</p>
+        <p>Xin chào, tôi là <strong>Hồ Nhật Phát</strong> — chuyên gia môi giới và tư vấn bất động sản tại <strong>Chư Sê, Gia Lai</strong>. Với kinh nghiệm thực tế, tôi hỗ trợ khách hàng tìm kiếm, định giá và giao dịch bất động sản một cách minh bạch và hiệu quả.</p>
+        <p>Mỗi giao dịch là một mối quan hệ dài lâu — tôi đặt sự tin tưởng của bạn lên hàng đầu.</p>
+        <p>Sẵn sàng tư vấn toàn khu vực <strong>Tây Nguyên</strong> và các tỉnh lân cận.</p>
+      </div>
+      <div class="spec-pills">
+        <span class="spec-pill">Đất nền</span>
+        <span class="spec-pill">Nhà ở</span>
+        <span class="spec-pill">Đất vườn</span>
+        <span class="spec-pill">Định giá</span>
+        <span class="spec-pill">Tư vấn pháp lý</span>
+        <span class="spec-pill">Chư Sê · Gia Lai</span>
       </div>
     </div>
   </div>
@@ -556,45 +545,45 @@
 
 <!-- THEMES SHOWCASE -->
 <section id="themes">
-  <p class="section-label reveal">Five themes</p>
+  <p class="section-label reveal">Năm chủ đề</p>
   <div class="showcase-grid reveal">
 
     <div class="showcase-card sc-midnight" onclick="setThemeAndScroll(0)">
-      <div class="sc-label" style="color:#4a5aaa">Midnight</div>
-      <div class="sc-name" style="color:#e0e0f8">Your Name</div>
-      <div class="sc-role" style="color:#6666aa">Your Role</div>
       <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#3b5bdb,#7048e8,#3b5bdb)"></div>
+      <div class="sc-label" style="color:#4a5aaa">Midnight</div>
+      <div class="sc-name" style="color:#e0e0f8">Hồ Nhật Phát</div>
+      <div class="sc-role" style="color:#6666aa">Chuyên gia BĐS</div>
     </div>
 
     <div class="showcase-card sc-arctic" onclick="setThemeAndScroll(1)">
+      <div style="width:22px;height:2px;background:#74c0fc;border-radius:2px;margin-bottom:8px"></div>
       <div class="sc-label" style="color:#5577aa">Arctic</div>
-      <div style="width:24px;height:2px;background:#74c0fc;border-radius:2px;margin-bottom:8px"></div>
-      <div class="sc-name" style="color:#0d1b3e">Your Name</div>
-      <div class="sc-role" style="color:#5577aa">Your Role</div>
+      <div class="sc-name" style="color:#0d1b3e">Hồ Nhật Phát</div>
+      <div class="sc-role" style="color:#5577aa">Chuyên gia BĐS</div>
     </div>
 
     <div class="showcase-card sc-forest" onclick="setThemeAndScroll(2)">
       <div class="sc-label" style="color:#3a6644">Forest</div>
-      <div class="sc-name" style="color:#c8eec8">Your Name</div>
-      <div class="sc-role" style="color:#66aa77">Your Role</div>
+      <div class="sc-name" style="color:#c8eec8">Hồ Nhật Phát</div>
+      <div class="sc-role" style="color:#66aa77">Chuyên gia BĐS</div>
     </div>
 
     <div class="showcase-card sc-sunset" onclick="setThemeAndScroll(3)">
-      <div class="sc-label" style="color:#7a3020">Sunset</div>
       <div style="display:flex;gap:3px;margin-bottom:8px">
-        <span style="width:22px;height:2px;border-radius:2px;background:#e0603a;display:block"></span>
-        <span style="width:11px;height:2px;border-radius:2px;background:#e09050;display:block"></span>
+        <span style="width:20px;height:2px;border-radius:2px;background:#e0603a;display:block"></span>
+        <span style="width:10px;height:2px;border-radius:2px;background:#e09050;display:block"></span>
         <span style="width:6px;height:2px;border-radius:2px;background:#e0c060;display:block"></span>
       </div>
-      <div class="sc-name" style="color:#fdddd5">Your Name</div>
-      <div class="sc-role" style="color:#bb6650">Your Role</div>
+      <div class="sc-label" style="color:#7a3020">Sunset</div>
+      <div class="sc-name" style="color:#fdddd5">Hồ Nhật Phát</div>
+      <div class="sc-role" style="color:#bb6650">Chuyên gia BĐS</div>
     </div>
 
-    <div class="showcase-card sc-gold" onclick="setThemeAndScroll(4)" style="grid-column: span 1">
-      <div class="sc-label" style="color:#6a5820">Obsidian Gold</div>
-      <div class="sc-name" style="color:#e8d898">Your Name</div>
-      <div class="sc-role" style="color:#9a8855">Your Role</div>
+    <div class="showcase-card sc-gold-card" onclick="setThemeAndScroll(4)">
       <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#c9a84c60,transparent)"></div>
+      <div class="sc-label" style="color:#6a5820">Obsidian Gold</div>
+      <div class="sc-name" style="color:#e8d898">Hồ Nhật Phát</div>
+      <div class="sc-role" style="color:#9a8855">Chuyên gia BĐS</div>
     </div>
 
   </div>
@@ -603,18 +592,13 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="reveal">
-    <h2 class="contact-headline">Let's connect.</h2>
-    <p class="contact-sub">Pick your channel — I'm reachable on all of them.</p>
+    <h2 class="contact-headline">Kết nối ngay.</h2>
+    <p class="contact-sub">Chọn kênh phù hợp — tôi luôn sẵn sàng hỗ trợ bạn.</p>
     <div class="contact-links">
-
-      <a href="mailto:hello@yourmail.com" class="contact-btn">
-        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-        Email
-      </a>
 
       <a href="tel:+84xxxxxxxxx" class="contact-btn">
         <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6.29 6.29l.95-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Phone
+        Gọi điện
       </a>
 
       <a href="#" class="contact-btn">
@@ -622,19 +606,19 @@
         Zalo
       </a>
 
-      <a href="https://linkedin.com" target="_blank" class="contact-btn">
-        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn
+      <a href="mailto:hello@yourmail.com" class="contact-btn">
+        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        Email
       </a>
 
-      <a href="https://github.com" target="_blank" class="contact-btn">
-        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        GitHub
-      </a>
-
-      <a href="https://facebook.com" target="_blank" class="contact-btn">
+      <a href="https://facebook.com/profile.php?id=61580944365278" target="_blank" class="contact-btn">
         <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         Facebook
+      </a>
+
+      <a href="#" class="contact-btn">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        Đặt lịch gặp
       </a>
 
     </div>
@@ -643,113 +627,127 @@
 
 <!-- FOOTER -->
 <footer>
-  <span>© 2026 Your Name</span>
-  <span>Da Nang, Vietnam</span>
+  <span>© 2026 Hồ Nhật Phát</span>
+  <span>Chư Sê · Gia Lai · Việt Nam</span>
 </footer>
 
 <script>
 const info = {
-  name:    'Your Name',
-  role:    'Your Title / Role',
-  company: 'Company · Da Nang',
-  email:   'hello@yourmail.com',
+  name:    'Hồ Nhật Phát',
+  role:    'Chuyên gia môi giới, tư vấn bất động sản',
+  company: 'Chư Sê · Gia Lai',
   phone:   '+84 xxx xxx xxx',
-  zalo:    'Zalo · same as phone',
+  zalo:    'Zalo · cùng số điện thoại',
+  email:   'hello@yourmail.com',
   website: 'yourwebsite.com',
-  linkedin:'linkedin.com/in/yourname',
-  github:  'github.com/yourname',
-  facebook:'facebook.com/yourname',
+  facebook:'facebook.com/profile.php?id=61580944365278',
 };
 
 let theme = 0;
 let flipped = false;
-const THEMES = ['midnight','arctic','forest','sunset','gold'];
-const NAMES  = ['Midnight','Arctic','Forest','Sunset','Obsidian Gold'];
+const THEMES = ['gold','arctic','forest','sunset', 'midnight'];
 
-/* ── card content builders ── */
-function icon(d) {
-  const icons = {
-    mail: 'M3 4h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm9 9L4 6h16l-8 7z',
-    phone: 'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.95-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z',
-    msg:  'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z',
-    web:  'M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 0c-2.4 4-2.4 16 0 20M2 12h20M4.2 7h15.6M4.2 17h15.6',
-    li:   'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z',
-    gh:   'M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22',
-  };
-  const p = icons[d] || '';
-  return `<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="${p}"/></svg>`;
+function svgIcon(d) {
+  return `<svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="${d}"/></svg>`;
 }
 
+const ICONS = {
+  phone:   'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.95-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z',
+  msg:     'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z',
+  mail:    'M3 4h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm9 9L4 6h16l-8 7z',
+  web:     'M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 0c-2.4 4-2.4 16 0 20M2 12h20M4.2 7h15.6M4.2 17h15.6',
+  fb:      'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z',
+  map:     'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z',
+};
+
 function brow(color, ico, text) {
-  return `<div class="brow" style="color:${color}">${icon(ico)}<span>${text}</span></div>`;
+  return `<div class="brow" style="color:${color}">${svgIcon(ICONS[ico])}<span>${text}</span></div>`;
 }
 
 function buildFront(t) {
   if (t === 0) return `
-    <div><div class="cn mn">${info.name}</div><div class="cr mr">${info.role}</div></div>
-    <div class="md" style="color:#3b3b6a"><span></span><span class="cc mc">${info.company}</span></div>`;
+    <div>
+      <div class="cn mn">${info.name}</div>
+      <div class="cr mr">${info.role}</div>
+    </div>
+    <div class="md" style="color:#3b3b6a">
+      <span class="dot"></span>
+      <span class="cc mc">${info.company}</span>
+    </div>`;
 
   if (t === 1) return `
-    <div><span class="aa"></span><div class="cn an">${info.name}</div><div class="cr ar">${info.role}</div></div>
+    <div>
+      <span class="aa"></span>
+      <div class="cn an">${info.name}</div>
+      <div class="cr ar">${info.role}</div>
+    </div>
     <div class="cc ac">${info.company}</div>`;
 
   if (t === 2) return `
-    <div style="position:relative"><div class="cn fn">${info.name}</div><div class="cr fr">${info.role}</div></div>
+    <div style="position:relative">
+      <div class="cn fn">${info.name}</div>
+      <div class="cr fr">${info.role}</div>
+    </div>
     <div class="cc fc">${info.company}</div>`;
 
   if (t === 3) return `
     <div>
-      <div class="sb"><span style="width:24px;background:#e0603a"></span><span style="width:12px;background:#e09050"></span><span style="width:7px;background:#e0c060"></span></div>
-      <div class="cn sn">${info.name}</div><div class="cr sr">${info.role}</div>
+      <div class="sb">
+        <span style="width:24px;background:#e0603a"></span>
+        <span style="width:12px;background:#e09050"></span>
+        <span style="width:7px;background:#e0c060"></span>
+      </div>
+      <div class="cn sn">${info.name}</div>
+      <div class="cr sr">${info.role}</div>
     </div>
-    <div class="cc sc">${info.company}</div>`;
+    <div class="cc sc-col">${info.company}</div>`;
 
   if (t === 4) return `
-    <div class="gcorn tl"></div><div class="gcorn br"></div>
-    <div><div class="cn gn">${info.name}</div><div class="cr gr">${info.role}</div></div>
+    <div class="gcorn tl"></div>
+    <div class="gcorn br"></div>
+    <div>
+      <div class="cn gn">${info.name}</div>
+      <div class="cr gr">${info.role}</div>
+    </div>
     <div class="cc gc">${info.company}</div>`;
 }
 
 function buildBack(t) {
-  const palettes = [
-    { acc:'#3b5bdb', mid:'#5566bb', div:'rgba(59,91,219,0.12)', bg:'' },
-    { acc:'#4dabf7', mid:'#446688', div:'#d0e4f4', bg:'' },
-    { acc:'#69db7c', mid:'#669977', div:'rgba(105,219,124,0.12)', bg:'' },
-    { acc:'#e0603a', mid:'#aa7755', div:'rgba(224,96,58,0.15)', bg:'' },
-    { acc:'#c9a84c', mid:'#9a8855', div:'rgba(201,168,76,0.15)', bg:'' },
+  const pal = [
+    { mid:'#5566bb', div:'rgba(59,91,219,0.12)' },
+    { mid:'#4488aa', div:'#c8dff0' },
+    { mid:'#669977', div:'rgba(105,219,124,0.12)' },
+    { mid:'#aa7755', div:'rgba(224,96,58,0.15)' },
+    { mid:'#9a8855', div:'rgba(201,168,76,0.15)' },
   ];
-  const p = palettes[t];
+  const p = pal[t];
   const extra = t === 4 ? `<div class="gcorn tl"></div><div class="gcorn br"></div>` : '';
   return `
     ${extra}
     <div>
-      ${brow(p.mid,'mail', info.email)}
       ${brow(p.mid,'phone', info.phone)}
-      ${brow(p.mid,'msg', info.zalo)}
+      ${brow(p.mid,'msg',   info.zalo)}
+      ${brow(p.mid,'mail',  info.email)}
       <div class="bdiv" style="background:${p.div}"></div>
-      ${brow(p.mid,'web', info.website)}
-      ${brow(p.mid,'li',  info.linkedin)}
-      ${brow(p.mid,'gh',  info.github)}
+      ${brow(p.mid,'fb',    info.facebook)}
+      ${brow(p.mid,'map',   info.company)}
+      ${brow(p.mid,'web',   info.website)}
     </div>`;
 }
 
 function render() {
-  const t = theme;
-  const tn = THEMES[t];
+  const tn = THEMES[theme];
   const front = document.getElementById('cardFront');
   const back  = document.getElementById('cardBack');
-
   front.className = `card-face card-front-face t-${tn}`;
   back.className  = `card-face card-back-face t-${tn}`;
-  front.innerHTML = buildFront(t);
-  back.innerHTML  = buildBack(t);
+  front.innerHTML = buildFront(theme);
+  back.innerHTML  = buildBack(theme);
 }
 
 function setTheme(t) {
   theme = t;
-  document.querySelectorAll('.theme-pip').forEach((p, i) => {
-    p.classList.toggle('active', i === t);
-  });
+  document.querySelectorAll('.theme-pip').forEach((p, i) => p.classList.toggle('active', i === t));
   render();
 }
 
@@ -763,11 +761,10 @@ function flipCard() {
   document.getElementById('cardInner').classList.toggle('flipped', flipped);
 }
 
-/* scroll reveal */
-const observer = new IntersectionObserver((entries) => {
+const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 render();
 </script>
